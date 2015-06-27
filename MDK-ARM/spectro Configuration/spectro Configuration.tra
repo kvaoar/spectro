@@ -1,0 +1,47 @@
+*** Creating Trace Output File 'spectro Configuration\spectro Configuration.tra' Ok.
+### Preparing for ADS-LD.
+### Creating ADS-LD Command Line
+### List of Objects: adding '"spectro configuration\usbd_ctlreq.o"'
+### List of Objects: adding '"spectro configuration\usbd_cdc.o"'
+### List of Objects: adding '"spectro configuration\usbd_ioreq.o"'
+### List of Objects: adding '"spectro configuration\usbd_core.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_hal_msp.o"'
+### List of Objects: adding '"spectro configuration\usbd_desc.o"'
+### List of Objects: adding '"spectro configuration\main.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_it.o"'
+### List of Objects: adding '"spectro configuration\usbd_conf.o"'
+### List of Objects: adding '"spectro configuration\usb_device.o"'
+### List of Objects: adding '"spectro configuration\usbd_cdc_if.o"'
+### List of Objects: adding '"spectro configuration\system_stm32f1xx.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_hal_rcc.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_hal_pcd_ex.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_ll_usb.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_hal_gpio.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_hal_pcd.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_hal_dma.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_hal_flash_ex.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_hal_gpio_ex.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_hal_pwr.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_hal_rcc_ex.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_hal_cortex.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_hal.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_hal_flash.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_hal_adc_ex.o"'
+### List of Objects: adding '"spectro configuration\stm32f1xx_hal_adc.o"'
+### List of Objects: adding '"spectro configuration\startup_stm32f103xb.o"'
+### ADS-LD Command completed:
+--cpu Cortex-M3 "spectro configuration\usbd_ctlreq.o" "spectro configuration\usbd_cdc.o" "spectro configuration\usbd_ioreq.o" "spectro configuration\usbd_core.o" "spectro configuration\stm32f1xx_hal_msp.o" "spectro configuration\usbd_desc.o" "spectro configuration\main.o" "spectro configuration\stm32f1xx_it.o" "spectro configuration\usbd_conf.o" "spectro configuration\usb_device.o" "spectro configuration\usbd_cdc_if.o" "spectro configuration\system_stm32f1xx.o" "spectro configuration\stm32f1xx_hal_rcc.o" "spectro configuration\stm32f1xx_hal_pcd_ex.o" "spectro configuration\stm32f1xx_ll_usb.o" "spectro configuration\stm32f1xx_hal_gpio.o" "spectro configuration\stm32f1xx_hal_pcd.o" "spectro configuration\stm32f1xx_hal_dma.o" "spectro configuration\stm32f1xx_hal_flash_ex.o" "spectro configuration\stm32f1xx_hal_gpio_ex.o" "spectro configuration\stm32f1xx_hal_pwr.o" "spectro configuration\stm32f1xx_hal_rcc_ex.o" "spectro configuration\stm32f1xx_hal_cortex.o" "spectro configuration\stm32f1xx_hal.o" "spectro configuration\stm32f1xx_hal_flash.o" "spectro configuration\stm32f1xx_hal_adc_ex.o" "spectro configuration\stm32f1xx_hal_adc.o" "spectro configuration\startup_stm32f103xb.o" 
+--library_type=microlib --strict --scatter "spectro Configuration\spectro Configuration.sct" 
+--diag_suppress=L6329 --summary_stderr --info summarysizes --map --xref --callgraph --symbols 
+--info sizes --info totals --info unused --info veneers 
+ --list "spectro Configuration.map" -o "spectro Configuration\spectro Configuration.axf"### Preparing Environment (PrepEnvAds)
+### ADS-LD Output File: 'spectro Configuration\spectro Configuration.axf'
+### ADS-LD Command File: 'spectro Configuration\spectro Configuration.lnp'
+### Checking for dirty Components...
+### Creating CmdFile 'spectro Configuration\spectro Configuration.lnp', Handle=0x00000D24
+### Writing '.lnp' file
+### ADS-LD Command file 'spectro Configuration\spectro Configuration.lnp' is ready.
+### ADS-LD: About to start ADS-LD Thread.
+### ADS-LD: executed with 0 errors
+### Updating obj list
+### LDADS_file() completed.
