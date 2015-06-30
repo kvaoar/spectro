@@ -1,6 +1,6 @@
 #MicroXplorer Configuration settings - do not modify
 ADC1.ContinuousConvMode=ENABLE
-ADC1.ExternalTrigConv=ADC_EXTERNALTRIGCONV_T3_TRGO
+ADC1.ExternalTrigConv=ADC_SOFTWARE_START
 ADC1.ExternalTrigConvEdgeChoice=NONE
 ADC1.IPParameters=NbrOfConversionFlag,ExternalTrigConv,NbrOfConversion,master,ExternalTrigConvEdgeChoice,ContinuousConvMode,SamplingTime-0\#ChannelRegularConversion
 ADC1.NbrOfConversion=1
@@ -105,7 +105,7 @@ RCC.FCLKCortexFreq_Value=48000000
 RCC.FamilyName=M
 RCC.HCLKFreq_Value=48000000
 RCC.HSIState=RCC_HSI_ON
-RCC.IPParameters=HSIState,VCOOutput2Freq_Value,PLLMUL,FamilyName,PLLMCOFreq_Value,APB1TimFreq_Value,APB2Freq_Value,APB1CLKDivider,HCLKFreq_Value,FCLKCortexFreq_Value,USBFreq_Value,ADCPresc,AHBFreq_Value,TimSysFreq_Value,ADCFreqValue,SYSCLKFreq_VALUE,SYSCLKSource,MCOFreq_Value,APB1Freq_Value,PLLCLKFreq_Value,APB2TimFreq_Value
+RCC.IPParameters=HSIState,VCOOutput2Freq_Value,PLLMUL,FamilyName,PLLMCOFreq_Value,APB1TimFreq_Value,APB2Freq_Value,APB1CLKDivider,HCLKFreq_Value,FCLKCortexFreq_Value,USBFreq_Value,ADCPresc,AHBFreq_Value,ADCFreqValue,TimSysFreq_Value,SYSCLKFreq_VALUE,SYSCLKSource,MCOFreq_Value,APB1Freq_Value,PLLCLKFreq_Value,APB2TimFreq_Value
 RCC.MCOFreq_Value=48000000
 RCC.PLLCLKFreq_Value=48000000
 RCC.PLLMCOFreq_Value=24000000
