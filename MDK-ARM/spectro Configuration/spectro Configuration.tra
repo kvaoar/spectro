@@ -38,7 +38,7 @@
 ### ADS-LD Output File: 'spectro Configuration\spectro Configuration.axf'
 ### ADS-LD Command File: 'spectro Configuration\spectro Configuration.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile 'spectro Configuration\spectro Configuration.lnp', Handle=0x00000D24
+### Creating CmdFile 'spectro Configuration\spectro Configuration.lnp', Handle=0x00001B3C
 ### Writing '.lnp' file
 ### ADS-LD Command file 'spectro Configuration\spectro Configuration.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.
