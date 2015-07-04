@@ -51,7 +51,9 @@ extern USBD_CDC_ItfTypeDef  USBD_Interface_fops_FS;
   * @{
   */ 
 uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len);
-
+int VCP_read(void *pBuffer, int size);
+int VCP_write(const void *pBuffer, int size);
+extern char VCPInitialized;
 /**
   * @}
   */

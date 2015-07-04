@@ -46,6 +46,7 @@ DMA_HandleTypeDef hdma_adc1;
 /* USER CODE BEGIN PV */
 char buf[25];
 uint16_t adc_res[800];
+int8_t scale = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -53,12 +54,14 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_DMA_Init(void);
 static void MX_ADC1_Init(void);
-
+static void ADC_set_speed(int scale);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
 
 /* USER CODE BEGIN 0 */
+
+
 
 /* USER CODE END 0 */
 
@@ -100,17 +103,39 @@ int main(void)
 
 		HAL_ADC_Start(&hadc1);
 		HAL_ADC_Start_DMA(&hadc1,(uint32_t*)adc_res,800);
+		
+
 		sprintf(buf,"frame\n");
 		CDC_Transmit_FS((uint8_t*)buf, strlen(buf));
-				for(int i = 0; i < 800; i++) {
-					sprintf(buf,"%i\n", adc_res[i]);
-		CDC_Transmit_FS((uint8_t*)buf, strlen(buf));
-HAL_Delay(1);		}
+		
+
 //		uint16_t tmp = HAL_ADC_GetValue(&hadc1);
 		HAL_DMA_PollForTransfer(&hdma_adc1,HAL_DMA_FULL_TRANSFER,100);
-		HAL_ADC_Stop_DMA(&hadc1);
-		HAL_ADC_Stop(&hadc1);
+		//HAL_ADC_Stop_DMA(&hadc1);
+		//HAL_ADC_Stop(&hadc1);
 		
+		for(int i = 0; i < 800; i++) {
+				sprintf(buf,"%i\n", adc_res[i]);
+				CDC_Transmit_FS((uint8_t*)buf, strlen(buf));
+				HAL_Delay(1);		
+			}
+			char c = ' ';
+			VCP_read(&c, 1);
+			switch(c){
+			case '+': { if (scale == 7) scale = 0; else scale++;
+				HAL_ADC_Stop(&hadc1);
+				ADC_set_speed(scale); 
+				sprintf(buf,"state %d\n", scale);
+				CDC_Transmit_FS((uint8_t*)buf, strlen(buf));
+				break;}
+			case '-': {if (scale == 0) scale = 7; else scale--;  
+				HAL_ADC_Stop(&hadc1);
+				ADC_set_speed(scale);				
+				sprintf(buf,"state %d\n", scale);
+				CDC_Transmit_FS((uint8_t*)buf, strlen(buf));
+				break;}
+			default: break;
+			}
 
 }
   /* USER CODE END 3 */
@@ -156,7 +181,7 @@ void SystemClock_Config(void)
 void MX_ADC1_Init(void)
 {
 
-  ADC_ChannelConfTypeDef sConfig;
+
 
     /**Common config 
     */
@@ -171,6 +196,7 @@ void MX_ADC1_Init(void)
 
     /**Configure Regular Channel 
     */
+	  ADC_ChannelConfTypeDef sConfig;
   sConfig.Channel = ADC_CHANNEL_0;
   sConfig.Rank = 1;
   sConfig.SamplingTime = ADC_SAMPLETIME_239CYCLES_5;
@@ -210,6 +236,37 @@ void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+static void ADC_set_speed(int s){
+	
+	  hadc1.Instance = ADC1;
+  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+  hadc1.Init.NbrOfConversion = 1;
+  HAL_ADC_Init(&hadc1);
+	
+	
+	  ADC_ChannelConfTypeDef sConfig;
+  sConfig.Channel = ADC_CHANNEL_0;
+  sConfig.Rank = 1;
+
+	switch(s){
+	case 0 : sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5   ;break;
+	case 1 : sConfig.SamplingTime = ADC_SAMPLETIME_7CYCLES_5  ;break;
+	case 2 : sConfig.SamplingTime = ADC_SAMPLETIME_13CYCLES_5 ;break;
+	case 3 : sConfig.SamplingTime = ADC_SAMPLETIME_28CYCLES_5 ;break;
+	case 4 : sConfig.SamplingTime = ADC_SAMPLETIME_41CYCLES_5 ;break;
+	case 5 : sConfig.SamplingTime = ADC_SAMPLETIME_55CYCLES_5 ;break;
+	case 6 : sConfig.SamplingTime = ADC_SAMPLETIME_71CYCLES_5 ;break;
+	case 7 : sConfig.SamplingTime = ADC_SAMPLETIME_239CYCLES_5;break;
+	default: sConfig.SamplingTime = ADC_SAMPLETIME_239CYCLES_5;break;
+	}
+	
+  HAL_ADC_ConfigChannel(&hadc1, &sConfig);
+}
 
 /* USER CODE END 4 */
 

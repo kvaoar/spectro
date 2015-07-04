@@ -46,6 +46,18 @@
   * @{
   */ 
   /* USER CODE BEGIN 0 */ 
+	
+	static struct
+{
+    uint8_t Buffer[CDC_DATA_HS_OUT_PACKET_SIZE];
+    int Position, Size;
+    char ReadDone;
+} RxBuffer;
+ 
+char VCPInitialized;
+ 
+
+	
   /* USER CODE END 0 */ 
 /**
   * @}
@@ -123,7 +135,8 @@ static int8_t CDC_Init_FS(void)
   /* USER CODE BEGIN 3 */ 
   /* Set Application Buffers */
   USBD_CDC_SetTxBuffer(hUsbDevice_0, UserTxBufferFS, 0);
-  USBD_CDC_SetRxBuffer(hUsbDevice_0, UserRxBufferFS);
+	USBD_CDC_SetRxBuffer(&hUsbDeviceFS, RxBuffer.Buffer);
+	VCPInitialized = 1;
   return (USBD_OK);
   /* USER CODE END 3 */ 
 }
@@ -234,8 +247,12 @@ static int8_t CDC_Receive_FS (uint8_t* Buf, uint32_t *Len)
 {
   /* USER CODE BEGIN 6 */
 
- USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &UserRxBufferFS[0]);
- USBD_CDC_ReceivePacket(&hUsbDeviceFS); 
+
+ //USBD_CDC_SetRxBuffer(&hUsbDeviceFS, &UserRxBufferFS[0]);
+ //USBD_CDC_ReceivePacket(&hUsbDeviceFS); 
+		RxBuffer.Position = 0;
+  RxBuffer.Size = *Len;
+  RxBuffer.ReadDone = 1;
   return (USBD_OK);
   /* USER CODE END 6 */ 
 }
@@ -264,7 +281,55 @@ uint8_t CDC_Transmit_FS(uint8_t* Buf, uint16_t Len)
 /**
   * @}
   */ 
-
+int VCP_read(void *pBuffer, int size)
+{
+    if (!RxBuffer.ReadDone)
+        return 0;
+ 
+    int remaining = RxBuffer.Size - RxBuffer.Position;
+    int todo = MIN(remaining, size);
+    if (todo <= 0)
+        return 0;
+ 
+    memcpy(pBuffer, RxBuffer.Buffer + RxBuffer.Position, todo);
+    RxBuffer.Position += todo;
+    if (RxBuffer.Position >= RxBuffer.Size)
+    {
+        RxBuffer.ReadDone = 0;
+        USBD_CDC_ReceivePacket(&hUsbDeviceFS);
+    }
+ 
+    return todo;
+}
+ 
+int VCP_write(const void *pBuffer, int size)
+{
+    if (size > CDC_DATA_HS_OUT_PACKET_SIZE)
+    {
+        int offset;
+        for (offset = 0; offset < size; offset++)
+        {
+            int todo = MIN(CDC_DATA_HS_OUT_PACKET_SIZE,
+                           size - offset);
+            int done = VCP_write(((char *)pBuffer) + offset, todo);
+            if (done != todo)
+                return offset + done;
+        }
+ 
+        return size;
+    }
+ 
+    USBD_CDC_HandleTypeDef *pCDC =
+            (USBD_CDC_HandleTypeDef *)hUsbDeviceFS.pClassData;
+    while(pCDC->TxState) { } //Wait for previous transfer
+ 
+    USBD_CDC_SetTxBuffer(&hUsbDeviceFS, (uint8_t *)pBuffer, size);
+    if (USBD_CDC_TransmitPacket(&hUsbDeviceFS) != USBD_OK)
+        return 0;
+ 
+    while(pCDC->TxState) { } //Wait until transfer is done
+    return size;
+}
 /**
   * @}
   */ 

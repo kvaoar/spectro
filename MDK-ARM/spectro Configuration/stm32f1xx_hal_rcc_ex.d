@@ -6,7 +6,7 @@ spectro Configuration\stm32f1xx_hal_rcc_ex.o: ..\Drivers\STM32F1xx_HAL_Driver\In
 spectro Configuration\stm32f1xx_hal_rcc_ex.o: ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h
 spectro Configuration\stm32f1xx_hal_rcc_ex.o: ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xb.h
 spectro Configuration\stm32f1xx_hal_rcc_ex.o: ..\Drivers\CMSIS\Include\core_cm3.h
-spectro Configuration\stm32f1xx_hal_rcc_ex.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+spectro Configuration\stm32f1xx_hal_rcc_ex.o: E:\stm32\Keil\ARM\ARMCC\bin\..\include\stdint.h
 spectro Configuration\stm32f1xx_hal_rcc_ex.o: ..\Drivers\CMSIS\Include\core_cmInstr.h
 spectro Configuration\stm32f1xx_hal_rcc_ex.o: ..\Drivers\CMSIS\Include\core_cmFunc.h
 spectro Configuration\stm32f1xx_hal_rcc_ex.o: ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h

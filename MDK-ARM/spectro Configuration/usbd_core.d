@@ -1,13 +1,13 @@
 spectro Configuration\usbd_core.o: ..\Middlewares\ST\STM32_USB_Device_Library\Core\Src\usbd_core.c
 spectro Configuration\usbd_core.o: ..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h
 spectro Configuration\usbd_core.o: ..\Inc\usbd_conf.h
-spectro Configuration\usbd_core.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
-spectro Configuration\usbd_core.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
-spectro Configuration\usbd_core.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+spectro Configuration\usbd_core.o: E:\stm32\Keil\ARM\ARMCC\bin\..\include\stdio.h
+spectro Configuration\usbd_core.o: E:\stm32\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+spectro Configuration\usbd_core.o: E:\stm32\Keil\ARM\ARMCC\bin\..\include\string.h
 spectro Configuration\usbd_core.o: ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h
 spectro Configuration\usbd_core.o: ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xb.h
 spectro Configuration\usbd_core.o: ..\Drivers\CMSIS\Include\core_cm3.h
-spectro Configuration\usbd_core.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+spectro Configuration\usbd_core.o: E:\stm32\Keil\ARM\ARMCC\bin\..\include\stdint.h
 spectro Configuration\usbd_core.o: ..\Drivers\CMSIS\Include\core_cmInstr.h
 spectro Configuration\usbd_core.o: ..\Drivers\CMSIS\Include\core_cmFunc.h
 spectro Configuration\usbd_core.o: ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h

@@ -3,7 +3,7 @@ spectro Configuration\usb_device.o: ..\Inc\usb_device.h
 spectro Configuration\usb_device.o: ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f1xx.h
 spectro Configuration\usb_device.o: ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\stm32f103xb.h
 spectro Configuration\usb_device.o: ..\Drivers\CMSIS\Include\core_cm3.h
-spectro Configuration\usb_device.o: C:\Keil\ARM\ARMCC\bin\..\include\stdint.h
+spectro Configuration\usb_device.o: E:\stm32\Keil\ARM\ARMCC\bin\..\include\stdint.h
 spectro Configuration\usb_device.o: ..\Drivers\CMSIS\Include\core_cmInstr.h
 spectro Configuration\usb_device.o: ..\Drivers\CMSIS\Include\core_cmFunc.h
 spectro Configuration\usb_device.o: ..\Drivers\CMSIS\Device\ST\STM32F1xx\Include\system_stm32f1xx.h
@@ -29,9 +29,9 @@ spectro Configuration\usb_device.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1x
 spectro Configuration\usb_device.o: ..\Drivers\STM32F1xx_HAL_Driver\Inc\stm32f1xx_hal_pcd_ex.h
 spectro Configuration\usb_device.o: ..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h
 spectro Configuration\usb_device.o: ..\Inc\usbd_conf.h
-spectro Configuration\usb_device.o: C:\Keil\ARM\ARMCC\bin\..\include\stdio.h
-spectro Configuration\usb_device.o: C:\Keil\ARM\ARMCC\bin\..\include\stdlib.h
-spectro Configuration\usb_device.o: C:\Keil\ARM\ARMCC\bin\..\include\string.h
+spectro Configuration\usb_device.o: E:\stm32\Keil\ARM\ARMCC\bin\..\include\stdio.h
+spectro Configuration\usb_device.o: E:\stm32\Keil\ARM\ARMCC\bin\..\include\stdlib.h
+spectro Configuration\usb_device.o: E:\stm32\Keil\ARM\ARMCC\bin\..\include\string.h
 spectro Configuration\usb_device.o: ..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_def.h
 spectro Configuration\usb_device.o: ..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_core.h
 spectro Configuration\usb_device.o: ..\Middlewares\ST\STM32_USB_Device_Library\Core\Inc\usbd_ioreq.h
